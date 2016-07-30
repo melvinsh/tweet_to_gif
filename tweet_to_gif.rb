@@ -29,7 +29,7 @@ puts "Downloading video ..."
 file = open("https://pbs.twimg.com/tweet_video/#{video_id}.mp4")
 
 puts "Converting video to GIF ..."
-`ffmpeg -i #{file.path} -vf scale=640:-1 -r 10 -f image2pipe -vcodec ppm -loglevel 0 - | convert -delay 5 -loop 0 - output/#{video_id}.gif`
+`ffmpeg -i #{file.path} -vf scale=640:-1 -f image2pipe -vcodec ppm -loglevel 0 - | convert -delay 5 -loop 0 -layers Optimize - output/#{video_id}.gif`
 
 puts "[DONE] GIF saved at output/#{video_id}.gif"
 

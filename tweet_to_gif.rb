@@ -1,4 +1,3 @@
-require "tempfile"
 require "nokogiri"
 require "open-uri"
 
